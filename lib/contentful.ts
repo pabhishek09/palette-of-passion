@@ -1,4 +1,4 @@
-import { createClient, type Entry } from 'contentful';
+import { createClient } from 'contentful';
 
 // Configure these environment vars in your deployment or .env.local
 const SPACE_ID = process.env.CF_SPACE_ID ?? '';
@@ -9,7 +9,7 @@ console.log('Contentful SPACE_ID:', SPACE_ID);
 if (!SPACE_ID || !ACCESS_TOKEN) {
   // Intentionally not throwing so local dev can still run other parts of the app.
   // If you need to fail fast, change this to throw an Error.
-  console.warn('Contentful credentials are missing. Set CONTENTFUL_SPACE_ID and CONTENTFUL_ACCESS_TOKEN.');
+  console.warn('Contentful credentials are missing. Set CF_SPACE_ID and CF_ACCESS_TOKEN.');
 }
 
 // the Contentful client will infer any needed generics on its own
@@ -20,10 +20,15 @@ export const contentfulClient = createClient({
 
 
 
-export async function getEntry<Fields = any>(
-  id: string,
-  query?: Record<string, unknown>
+export async function getEntry(
+  id: string
 ){
   return contentfulClient.getEntry(id);
+}
+
+export async function getEntries(
+  query?: Record<string, unknown>
+){
+  return contentfulClient.getEntries(query);
 }
 

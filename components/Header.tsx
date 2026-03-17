@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
     const navItems = [
@@ -11,13 +12,7 @@ export default function Header() {
     ];
 
     const [isOpen, setIsOpen] = useState(false);
-    const [currentPath, setCurrentPath] = useState("/");
-
-    useEffect(() => {
-        if (typeof window !== "undefined") {
-            setCurrentPath(window.location.pathname);
-        }
-    }, []);
+    const currentPath = usePathname();
 
     const activeNavItem = navItems.find(item => item.href === currentPath);
 
