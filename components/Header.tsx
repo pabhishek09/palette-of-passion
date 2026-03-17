@@ -17,11 +17,11 @@ export default function Header() {
     const activeNavItem = navItems.find(item => item.href === currentPath);
 
     return (
-        <header className="w-full">
+        <header className="sticky top-0 z-40 w-full bg-white dark:bg-black">
             <div className="w-full relative py-4 px-4 md:px-0">
                 <div className="flex justify-center">
                     <Image
-                        src="/logo.svg"
+                        src="/logo-2.svg"
                         alt="Logo"
                         width={256}
                         height={64}
@@ -34,7 +34,7 @@ export default function Header() {
                     onClick={() => setIsOpen((s) => !s)}
                     aria-label="Toggle menu"
                     aria-expanded={isOpen}
-                    className="md:hidden absolute right-4 top-4 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2"
+                    className="md:hidden absolute left-4 top-4 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2"
                 >
                     {isOpen ? (
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -60,9 +60,9 @@ export default function Header() {
                     ))}
                 </ul>
 
-                {/* Mobile menu (collapsible) */}
+                {/* Mobile menu (collapsible overlay) */}
                 {isOpen && (
-                    <div className="md:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800">
+                    <div className="md:hidden fixed left-0 top-20 w-full bg-white dark:bg-black shadow-lg z-50">
                         <ul className="flex flex-col items-center space-y-2 py-4">
                             {navItems.map((item) => (
                                 <li key={item.name} className={`w-full text-center px-4 py-2 font-medium ${activeNavItem?.name === item.name ? 'underline underline-offset-4' : ''}`}>

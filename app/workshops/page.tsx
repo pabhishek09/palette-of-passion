@@ -8,7 +8,7 @@ interface WorkshopFields {
   title: string;
   description?: string;
   date: string;
-  eventbriteUrl: string;
+  eventbriteLink: string;
   image?: {
     fields: {
       file: {
@@ -36,7 +36,7 @@ export default async function WorkshopsPage() {
 
   return (
     <div className="flex min-h-screen flex-col font-sans">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-8">
+      <div className="py-8">
         <h1 className="font-rethink-bold text-4xl text-center mb-12">Workshops</h1>
         {workshops.length === 0 ? (
           <div className="text-center py-12">
@@ -45,9 +45,10 @@ export default async function WorkshopsPage() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto px-4 lg:px-8">
             {workshops.map((workshop) => {
-              const { title: rawTitle, description: rawDescription, date, eventbriteUrl, image } = workshop.fields;
+              console.log('Rendering workshop:', workshop);
+              const { title: rawTitle, description: rawDescription, date, eventbriteLink, image } = workshop.fields;
               const title = typeof rawTitle === "string" ? rawTitle : rawTitle?.["en-US"] ?? "";
               const description = typeof rawDescription === "string" ? rawDescription : rawDescription?.["en-US"] ?? "";
               const workshopDate = new Date(date);
@@ -66,7 +67,7 @@ export default async function WorkshopsPage() {
                       />
                     </div>
                   )}
-                  <div className="p-6">
+                  <div className="p-6 text-center">
                     <h3 className="font-rethink-bold text-xl mb-2">{title}</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
                       {workshopDate.toLocaleDateString('en-US', {
@@ -83,9 +84,9 @@ export default async function WorkshopsPage() {
                         {description}
                       </p>
                     )}
-                    <div className="flex gap-2">
-                      <Button asChild className="flex-1">
-                        <a href={eventbriteUrl} target="_blank" rel="noopener noreferrer">
+                    <div className="flex gap-2 justify-center">
+                      <Button asChild size="lg" className="w-auto">
+                        <a href={eventbriteLink} target="_blank" rel="noopener noreferrer">
                           {isUpcoming ? 'Book Now' : 'View Details'}
                         </a>
                       </Button>

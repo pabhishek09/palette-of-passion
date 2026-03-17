@@ -25,7 +25,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="font-medium">Email</p>
-                  <p className="text-muted-foreground">hello@paletteofpassion.com</p>
+                  <p className="text-muted-foreground">eventinlondontoattend@gmail.com</p>
                 </div>
               </div>
 
@@ -38,7 +38,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="font-medium">Location</p>
-                  <p className="text-muted-foreground">Mumbai, India</p>
+                  <p className="text-muted-foreground">London, United Kingdom</p>
                 </div>
               </div>
 
@@ -50,7 +50,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="font-medium">Social Media</p>
-                  <p className="text-muted-foreground">@paletteofpassion</p>
+                  <p className="text-muted-foreground">@palette_of_passion_</p>
                 </div>
               </div>
             </div>
@@ -59,13 +59,8 @@ export function ContactSection() {
               <h4 className="font-semibold mb-4">Follow My Journey</h4>
               <div className="flex gap-4">
                 <Button variant="outline" size="sm" asChild>
-                  <a href="https://instagram.com/paletteofpassion" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.instagram.com/palette_of_passion_/" target="_blank" rel="noopener noreferrer">
                     Instagram
-                  </a>
-                </Button>
-                <Button variant="outline" size="sm" asChild>
-                  <a href="https://twitter.com/paletteofpassion" target="_blank" rel="noopener noreferrer">
-                    Twitter
                   </a>
                 </Button>
               </div>
@@ -86,18 +81,6 @@ export function ContactSection() {
               <p>
                 Response time is typically 1-2 business days. I look forward to connecting with you!
               </p>
-            </div>
-
-            <div className="mt-8 p-6 bg-muted/30 rounded-lg">
-              <h4 className="font-semibold mb-2">Commission Availability</h4>
-              <p className="text-sm text-muted-foreground mb-4">
-                Currently accepting commissions for custom artwork. Timeline: 4-6 weeks.
-              </p>
-              <Button asChild>
-                <a href="mailto:hello@paletteofpassion.com?subject=Commission Inquiry">
-                  Inquire About Commissions
-                </a>
-              </Button>
             </div>
           </div>
         </div>

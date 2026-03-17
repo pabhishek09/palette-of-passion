@@ -9,7 +9,7 @@ interface WorkshopFields {
   title: string;
   description?: string;
   date: string;
-  eventbriteUrl: string;
+  eventbriteLink: string;
   image?: {
     fields: {
       file: {
@@ -41,7 +41,8 @@ export async function FeaturedWorkshops() {
   }
 
   const workshop = workshops[0];
-  const { title: rawTitle, description: rawDescription, date, eventbriteUrl, image } = workshop.fields;
+  console.log('Featured workshop:', workshop);
+  const { title: rawTitle, description: rawDescription, date, eventbriteLink, image } = workshop.fields;
   const title = typeof rawTitle === "string" ? rawTitle : rawTitle?.["en-US"] ?? "";
   const description = typeof rawDescription === "string" ? rawDescription : rawDescription?.["en-US"] ?? "";
   const workshopDate = new Date(date);
@@ -68,7 +69,7 @@ export async function FeaturedWorkshops() {
                   </div>
                 </div>
               )}
-              <div className={`${imageUrl ? 'md:w-1/2' : 'w-full'} p-8`}>
+              <div className={`${imageUrl ? 'md:w-1/2' : 'w-full'} p-8 text-center`}>
                 <div className="mb-4">
                   <h3 className="font-rethink-bold text-2xl mb-2">{title}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
@@ -87,13 +88,13 @@ export async function FeaturedWorkshops() {
                     </p>
                   )}
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button asChild className="flex-1">
-                    <a href={eventbriteUrl} target="_blank" rel="noopener noreferrer">
+                <div className="flex flex-col gap-4 items-center">
+                  <Button asChild className="w-auto" size="lg">
+                    <a href={eventbriteLink} target="_blank" rel="noopener noreferrer">
                       Book Now
                     </a>
                   </Button>
-                  <Button variant="outline" asChild className="flex-1">
+                  <Button variant="outline" asChild className="w-auto" size="lg">
                     <Link href="/workshops">
                       View All Workshops
                     </Link>

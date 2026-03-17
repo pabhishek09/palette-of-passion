@@ -113,12 +113,12 @@ export default async function ArtworksPage() {
               return (
                 <div key={artwork.sys.id} className="cursor-pointer">
                   {imageUrl && (
-                    <div className="relative aspect-[3/2] rounded-lg overflow-hidden bg-gray-100 max-w-md mx-auto">
+                    <div className="relative aspect-[3/2] rounded-lg overflow-hidden bg-gray-100 max-w-2xl mx-auto">
                       <Image
                         src={imageUrl}
                         alt={title}
                         fill
-                        className="object-cover scale-100 hover:scale-110 transition-transform duration-300 ease-out"
+                        className="object-contain scale-100 hover:scale-110 transition-transform duration-300 ease-out"
                       />
                     </div>
                   )}
